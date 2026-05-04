@@ -7,9 +7,13 @@ window.config(padx=20, pady= 20)
 
 def convert():
     """This function collects the miles value, converts it to kilometer and displays the converted value"""
-    miles = float(miles_input.get())
-    km = miles * 1.609
-    km_value.config(text=f"{km}")
+    try:
+        miles = float(miles_input.get())
+    except ValueError:
+        print("Wrong Input. Please Input a valid Number")
+    else:
+        km = miles * 1.609
+        km_value.config(text=f"{km}")
 
 #create label to show what it is equal to
 equal_label = tkinter.Label(text="Is equal to")
@@ -33,6 +37,9 @@ miles_label.grid(column=2, row=0)
 #label to show kilometer
 km_label = tkinter.Label(text="Km")
 km_label.grid(column=2, row=1)
+
+
+
 
 
 

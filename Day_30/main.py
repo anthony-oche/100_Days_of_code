@@ -71,7 +71,10 @@ def find_password():
     except FileNotFoundError:
         messagebox.showinfo(title="Error", message="No Data File Found.")
     else:
-        if website in data:
+        if len(website) == "":
+            messagebox.showinfo(title="Error", message=f"You can't leave the field empty.")
+
+        elif website in data:
             email = data[website]["email"]
             password = data[website]["password"]
             messagebox.showinfo(title=website, message=f"Email: {email}\n Password: {password}")
@@ -117,8 +120,6 @@ pwd_btn.grid(row=3, column=2)
 
 btn = Button(text="Add", width=36, command=save_details)
 btn.grid(row=4, column=1, columnspan=2)
-
-
 
 
 
