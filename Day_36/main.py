@@ -59,6 +59,7 @@ else:
 percentage_change = math.floor((difference / day_before_yesterday_price) * 100)
 
 #get the first three articles for the specified stock and format them
+
 news_response = requests.get(url=NEWS_ENDPOINT, params=news_parameters)
 news_data = news_response.json()
 articles = news_data["articles"][:3]
